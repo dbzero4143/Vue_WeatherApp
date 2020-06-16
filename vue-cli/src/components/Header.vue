@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-      header
+    <h1>try check temperature</h1>
   </div>
 </template>
 
@@ -11,5 +11,7 @@ export default {
 </script>
 
 <style>
-
+h1{
+  line-height: 40vh;
+}
 </style>
