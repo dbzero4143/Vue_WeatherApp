@@ -6,6 +6,7 @@
   </div>
 </template>
 
+
 <script>
 import Header from './components/Header.vue'
 import Components from './components/Components.vue'
