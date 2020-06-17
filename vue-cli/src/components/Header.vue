@@ -26,7 +26,6 @@ export default {
   },
   methods: {
     inputvmodel(){
-      console.log('call')
       axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${this.vmodel}&appid=b0d4b965cd9f7029f15075afda9747cd`)
       .then((res)=>{
         this.info ={
