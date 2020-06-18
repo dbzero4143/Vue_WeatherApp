@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>try check temperature</h1>
-    <input type="text" v-model="vmodel" placeholder="City name">
+    <p><input type="text" v-model="vmodel" placeholder="City name" @keyup.enter="inputvmodel"></p>
     <button @click="inputvmodel">Search</button>
   </div>
 </template>
@@ -16,7 +16,6 @@ export default {
       vmodel:'',
       info: {
         name:null,
-        timezone:null,
         min_temp:null,
         max_temp:null,
         clouds:null,
@@ -30,13 +29,13 @@ export default {
       .then((res)=>{
         this.info ={
           name:res.data.name,
-          timezone:res.data.timezone,
-          min_temp:res.data.main.temp_min,
-          max_temp:res.data.main.temp_max,
+          min_temp:(res.data.main.temp_min - 273.15).toFixed(1),
+          max_temp:(res.data.main.temp_max - 273.15).toFixed(1),
           clouds:res.data.clouds,
           weather:res.data.weather[0].main
         }
         EventBus.$emit('send_vmodel', this.info)
+        this.vmodel = ''
       }).catch((err)=>{
         console.log(err)
       })
@@ -48,5 +47,32 @@ export default {
 <style>
 h1{
   line-height: 30vh;
+}
+
+button{
+  width: 5%;
+  height: 4vh;
+  background: #0575E6;
+  color: white;
+
+  border-radius: 40px / 40px;
+  border: 0 none;
+  outline-style: none;
+
+  box-shadow: 0 8px 8px 0 #0575E6;
+}
+
+button:hover{
+  transition: 0.8s;
+  background: #99f2c8;
+  color: #0575E6
+}
+
+input{
+  height:2vh;
+}
+
+input:focus {
+  outline: 0;
 }
 </style>

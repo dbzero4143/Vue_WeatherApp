@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-      Footer
+      <span>© 2020 made by Kong</span>
   </div>
 </template>
 
@@ -11,5 +11,7 @@ export default {
 </script>
 
 <style>
-
+span{
+  line-height: 11vh;
+}
 </style>

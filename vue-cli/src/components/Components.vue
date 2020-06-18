@@ -1,11 +1,36 @@
 <template>
   <div id="app">
-      <p v-if="this.boolean">{{this.info.name}}</p>
-      <p v-if="this.boolean">{{this.info.timezone}}</p>
-      <p v-if="this.boolean">{{this.info.min_temp}}</p>
-      <p v-if="this.boolean">{{this.info.max_temp}}</p>
-      <p v-if="this.boolean">{{this.info.clouds.all}}</p>
-      <p v-if="this.boolean">{{this.info.weather}}</p>
+    <article>
+      <section v-if="this.boolean">
+        <h2><p><img src="../assets/city.png" alt="city"> CityName</p></h2>
+        <h3><p> {{this.info.name}}</p></h3>
+      </section>
+
+      <section v-if="this.boolean">
+        <h2><p><img src="../assets/hot.png" alt="city"> Max_Temp</p></h2>
+        <h3><p>{{this.info.max_temp}}°C</p></h3>
+      </section>
+
+      <section v-if="this.boolean">
+        <h2><p><img src="../assets/cold.png" alt="city"> Min_Temp</p></h2>
+        <h3><p>{{this.info.min_temp}}°C</p></h3>
+      </section>
+
+      <section v-if="this.boolean">
+        <h2><p><img src="../assets/clouds.png" alt="city"> Clouds(%)</p></h2>
+        <h3><p>{{this.info.clouds.all}}%</p></h3>
+      </section>
+
+      <section v-if="this.boolean">
+        <h2><p><img src="../assets/star.png" alt="city"> Today</p></h2>
+        <h3><p>{{this.info.weather}}</p></h3>
+      </section>
+    </article>
+      
+      
+      
+      
+      
   </div>
 </template>
 
@@ -17,7 +42,6 @@ export default {
     return {
       info:{
         name:null,
-        timezone:null,
         min_temp:null,
         max_temp:null,
         clouds:null,
@@ -39,5 +63,26 @@ export default {
 </script>
 
 <style>
+article{
+  display: inline-flex;
+  height: 35vh;
+  width:100%;
+  margin-top: 2.5vh;
+  margin-bottom: 2.5vh;
+}
 
+section{
+  height:30vh;
+  width:20%;
+  border: 4px outset #D4AE6A;
+  margin-left:1vh;
+  margin-right:1vh;
+  margin-top:2.5vh;
+  margin-bottom:2.5vh;
+  line-height: 10vh;
+}
+
+img{
+  height:3vh;
+}
 </style>
