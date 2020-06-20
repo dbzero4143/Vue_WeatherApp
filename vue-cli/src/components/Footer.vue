@@ -1,17 +1,15 @@
 <template>
   <div id="app">
-      <span>© 2020 made by Kong</span>
+    <span>© 2020 made by Kong</span>
   </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style>
-span{
+span {
   line-height: 11vh;
 }
 </style>
