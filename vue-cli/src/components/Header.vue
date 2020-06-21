@@ -2,7 +2,12 @@
   <div id="app">
     <h1>try check temperature</h1>
     <p>
-      <input type="text" v-model="vmodel" placeholder="City name" @keyup.enter="inputvmodel" />
+      <input
+        type="text"
+        v-model="vmodel"
+        placeholder="City name(English)"
+        @keyup.enter="inputvmodel"
+      />
     </p>
     <button @click="inputvmodel">Search</button>
   </div>
