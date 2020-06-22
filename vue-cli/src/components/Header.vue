@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>try check temperature</h1>
+    <h1>check the weather</h1>
     <p>
       <input
         type="text"
