@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import EventBus from "../EventBus/EventBus";
+import EventBus from "@/EventBus/EventBus.vue";
 
 export default {
   data() {

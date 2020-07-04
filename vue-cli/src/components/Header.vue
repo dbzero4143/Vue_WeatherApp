@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import EventBus from "../EventBus/EventBus";
+import EventBus from "@/EventBus/EventBus.vue";
 import axios from "axios";
 
 export default {
