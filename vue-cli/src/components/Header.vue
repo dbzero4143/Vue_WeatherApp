@@ -7,8 +7,20 @@
         v-model="vmodel"
         placeholder="City name(English)"
         @keyup.enter="inputvmodel"
+        @keypress="pressvmodel"
       />
     </p>
+    <div v-if="this.isactive" class="div">
+      <ul class="ul">
+        <li class="li">
+          <h5>call</h5>
+        </li>
+        <li class="li">
+          <h5>cool</h5>
+        </li>
+      </ul>
+    </div>
+
     <button @click="inputvmodel">Search</button>
   </div>
 </template>
@@ -21,6 +33,8 @@ export default {
   data() {
     return {
       vmodel: "",
+      isactive: false,
+      vmodel_first_substr: "",
       info: {
         name: null,
         min_temp: null,
@@ -50,12 +64,20 @@ export default {
         .catch(err => {
           console.log(err);
         });
+    },
+    pressvmodel() {
+      console.log("프레스");
+      console.log(this.vmodel);
+      this.isactive = true;
     }
   }
 };
 </script>
 
 <style>
+p {
+  margin-bottom: 0px;
+}
 h1 {
   line-height: 20vh;
 }
@@ -65,6 +87,7 @@ button {
   height: 4vh;
   background: #0575e6;
   color: white;
+  margin-top: 20px;
 
   border-radius: 40px / 40px;
   border: 0 none;
@@ -85,5 +108,34 @@ input {
 
 input:focus {
   outline: 0;
+}
+
+.div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+ul {
+  border: 1px solid #eeeeee;
+  height: 120px;
+  margin: 0px;
+  padding: 0px;
+  overflow: auto;
+  width: 173px;
+  background-color: white;
+  color: black;
+}
+
+li {
+  list-style: none;
+  text-align: left;
+  padding: 2px 2px;
+  cursor: pointer;
+}
+
+li:hover {
+  background-color: silver;
+  color: white;
 }
 </style>
