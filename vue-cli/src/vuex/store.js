@@ -17,12 +17,11 @@ export default new Vuex.Store({
 
     mutations: {
         updatedata(state, payload) {
-            console.log("muta" + payload.data.name);
             state.info = {
                 name: payload.data.name,
                 min_temp: (payload.data.main.temp_min - 273.15).toFixed(1),
                 max_temp: (payload.data.main.temp_max - 273.15).toFixed(1),
-                clouds: payload.data.clouds,
+                clouds: payload.data.clouds.all,
                 weather: payload.data.weather[0].main
             };
         }
@@ -30,10 +29,18 @@ export default new Vuex.Store({
 
     actions: {
         apiload(context, payload) {
-            console.log("action " + payload.vmodel);
             axios
                 .get(
                     `https://api.openweathermap.org/data/2.5/weather?q=${payload.vmodel}&appid=b0d4b965cd9f7029f15075afda9747cd`
+                )
+                .then((res) => {
+                    context.commit("updatedata", res);
+                });
+        },
+        apirecentload(context, payload) {
+            axios
+                .get(
+                    `https://api.openweathermap.org/data/2.5/weather?q=${payload.clickvalue}&appid=b0d4b965cd9f7029f15075afda9747cd`
                 )
                 .then((res) => {
                     context.commit("updatedata", res);
